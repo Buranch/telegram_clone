@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidClientChat.iml" filepath="$PROJECT_DIR$/AndroidClientChat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chatandroid/chatandroid.iml" filepath="$PROJECT_DIR$/chatandroid/chatandroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chatkit/chatkit.iml" filepath="$PROJECT_DIR$/chatkit/chatkit.iml" />
+    </modules>
+  </component>
+</project>
