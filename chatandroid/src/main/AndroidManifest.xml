@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".DialogsListActivity" />
         <activity android:name=".MessagesActivity" />
         <activity
@@ -30,10 +30,11 @@
         </activity>
         <activity
             android:name=".RetrofitActivity"
-            android:label="Retfofit"></activity>
-        <activity android:name=".HomeActivity"
-                android:label="Home"
-            ></activity>
+            android:label="Retfofit" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="Home" />
+        <activity android:name=".MVCmain.Main2Activity"></activity>
     </application>
 
 </manifest>
