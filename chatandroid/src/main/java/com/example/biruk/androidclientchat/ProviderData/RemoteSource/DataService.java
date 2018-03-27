@@ -1,7 +1,10 @@
 package com.example.biruk.androidclientchat.ProviderData.RemoteSource;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
+import com.example.biruk.androidclientchat.ProviderData.fixtures.DialogsFixtures;
+import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
 import com.example.biruk.androidclientchat.ProviderData.model.User;
 
 import java.util.List;
@@ -41,28 +44,25 @@ public class DataService implements IDataService {
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
                 callback.onDataNotAvailable();
-
             }
-//
-//            @Override
-//            public void onResponse(Call<User> call, Response<User> response) {
-//                    callback.onDataLoaded();
-//                 //verify the list
-//                    Log.d("onResponse", "wowww");
-////                    callback.onDataLoaded(Arrays.asList(new User("w3", "hello there", "aav", false)
-////                                    , new User("w33", "hellre", "aadv", false)
-////                                    , new User("3fds", "New User", "staize", false)
-////                            , new User("3fds", "New User 1", "staize", false)
-////                            , new User("3fds", "New User 3", "staize", false)
-//
-//                    ));
-//            }
-//            @Override
-//            public void onFailure(Call<User> call, Throwable t) {
-//                callback.onDataNotAvailable();
-//                Log.d("onF", "wowww");
-//
-//            }
+        });
+    }
+
+    @Override
+    public void getDialogList(@NonNull final LoadDataCallBack<List<Dialog>> callBack) {
+
+        Call<List<Dialog>> dialogList = service.getDialogList("5aa4f04bd46b9d1d24a1465f");
+
+        dialogList.enqueue(new Callback<List<Dialog>>() {
+            @Override
+            public void onResponse(Call<List<Dialog>> call, Response<List<Dialog>> response) {
+                callBack.onDialogLoaded(DialogsFixtures.getDialogs());
+            }
+            @Override
+            public void onFailure(Call<List<Dialog>> call, Throwable t) {
+                Log.d("Dialog", "NOTAVAIL");
+                callBack.onDialogNotAvailable();
+            }
         });
     }
 }

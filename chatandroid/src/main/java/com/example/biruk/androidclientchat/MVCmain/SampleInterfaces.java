@@ -1,5 +1,6 @@
 package com.example.biruk.androidclientchat.MVCmain;
 
+import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
 import com.example.biruk.androidclientchat.ProviderData.model.User;
 
 import java.util.List;
@@ -14,10 +15,13 @@ public interface SampleInterfaces {
         void showText(String a);
         void showNoText();
         void showUserList(List<User> userList);
+
+        void renderDialogList(List<Dialog> dialogs);
     }
 
     interface Presenter {
 
+        void getDialogs();
         void loadUserName();
 
     }

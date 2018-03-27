@@ -1,5 +1,6 @@
 package com.example.biruk.androidclientchat.ProviderData.RemoteSource;
 
+import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
 import com.example.biruk.androidclientchat.ProviderData.model.User;
 
 import java.util.List;
@@ -14,5 +15,8 @@ public interface IDataContract {
 
         void onDataLoaded(List<User> user);
         void onDataNotAvailable();
+
+        void onDialogLoaded(List<Dialog> dialogs);
+        void onDialogNotAvailable();
     }
 }
