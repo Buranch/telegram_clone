@@ -13,11 +13,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
-import rx.Observable;
-
-import static android.R.attr.id;
 
 
 /**
@@ -41,7 +37,7 @@ public interface IAPIService {
             );
     //accepts userDataID as a param return list of conv
     @GET("api/convlist")
-    Observable<List> getConvList(
+    Call<List> getConvList(
             @Query("id") String id
     );
 

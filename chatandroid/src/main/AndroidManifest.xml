@@ -22,19 +22,27 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
+
+        </activity>
+        <activity
+            android:name=".RetrofitActivity"
+            android:label="Retfofit" />
+
+
+        <activity
+            android:name=".HomeActivity"
+            android:label="Home" />
+
+        <activity android:name=".MVCmain.Main2Activity"
+            android:label="MVC"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity
-            android:name=".RetrofitActivity"
-            android:label="Retfofit" />
-        <activity
-            android:name=".HomeActivity"
-            android:label="Home" />
-        <activity android:name=".MVCmain.Main2Activity"></activity>
     </application>
 
 </manifest>

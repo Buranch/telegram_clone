@@ -1,0 +1,18 @@
+package com.example.biruk.androidclientchat.ProviderData.RemoteSource;
+
+import com.example.biruk.androidclientchat.ProviderData.model.User;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+
+/**
+ * Created by Biruk on 3/27/2018.
+ */
+
+public interface ApiEndPoint {
+
+    @GET("dum")
+    Call<List<User>> getUsers();
+}
