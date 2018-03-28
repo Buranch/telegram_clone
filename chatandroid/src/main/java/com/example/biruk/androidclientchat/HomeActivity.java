@@ -151,7 +151,7 @@ public class HomeActivity extends AppCompatActivity {
     }
     public void renderConv(String id) {
 
-        DialogsFixtures.getConversations(id);
+//        DialogsFixtures.getConversations(id);
 
     }
     private Emitter.Listener onMessageReceive = new Emitter.Listener() {

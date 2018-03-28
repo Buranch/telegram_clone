@@ -17,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -36,7 +36,7 @@ public class ApiServices{
             .baseUrl("http://10.0.2.22:9666/")
             .addConverterFactory(GsonConverterFactory.create())
 //            .addCallAdapterFactory()
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
     private IAPIService service = retrofit.create(IAPIService.class);
 

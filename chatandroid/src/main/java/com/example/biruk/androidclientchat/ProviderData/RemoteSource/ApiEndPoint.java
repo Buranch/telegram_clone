@@ -5,6 +5,7 @@ import com.example.biruk.androidclientchat.ProviderData.model.User;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -16,8 +17,9 @@ import retrofit2.http.Query;
 public interface ApiEndPoint {
 
     @GET("dum")
-    Call<List<User>> getUsers();
-
+//    Call<List<User>> getUsers();
+    Observable<List<User>> getUsersReactivly();
     @GET("/api/convlist")
-    Call<List<Dialog>> getDialogList(@Query("id") String id);
+    Observable<List<Dialog>> getDialogList(@Query("id") String id);
+
 }

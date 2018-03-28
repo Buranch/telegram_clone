@@ -32,47 +32,11 @@ public class PresenterTest {
     public void shouldPassTextView() {
 
         //given
-
-        SampleInterfaces.View view = new MockView();
-
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.22:9666/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        final ApiEndPoint apiService = retrofit.create(ApiEndPoint.class);
 //        IDataService iDataService = new MockDataService(apiService);
-        Presenter presenter = new Presenter(new IDataService() {
-            ApiEndPoint service = RetrofitInit.getClient().create(ApiEndPoint.class);
-            @Override
-            public void getNameList(@NonNull final LoadDataCallBack<User> callback) {
-                Call<User> usersList = service.getUsers();
-                usersList.enqueue(new Callback<User>() {
-                    @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
-//                callback.onDataLoaded(response.body());
-                        //verify the list
-//                    Log.d("onResponse", "wowww");
-                        callback.onDataLoaded(Arrays.asList(new User("w3", "hello there", "aav", false)));
-                    }
-
-                    @Override
-                    public void onFailure(Call<User> call, Throwable t) {
-                        callback.onDataNotAvailable();
-//                    Log.d("onF", "wowww");
-
-                    }
-                });
-            }
-
-            ;
-
-        }, view);
         //when
 
-        presenter.loadText();
-        Assert.assertEquals(true, ((MockView) view).passed);
+//        dialogListPresenter.loadText();
+//        Assert.assertEquals(true, ((MockView) view).passed);
 //        Assert.assertEquals(true, ((MockView) view).passedNo);
 //
 
@@ -80,19 +44,5 @@ public class PresenterTest {
     }
 
 
-    public class MockView implements SampleInterfaces.View {
-        boolean passed;
-        boolean passedNo;
 
-        @Override
-        public void showText(String a) {
-            passed = true;
-        }
-
-        @Override
-        public void showNoText() {
-
-            passedNo = true;
-        }
-    }
 }

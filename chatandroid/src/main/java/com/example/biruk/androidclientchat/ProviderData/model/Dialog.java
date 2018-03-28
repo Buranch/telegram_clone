@@ -10,62 +10,58 @@ import java.util.List;
 /*
  * Created by troy379 on 04.04.17.
  */
-public class Dialog implements IDialog {
+public class Dialog implements IDialog<Message> {
+
     private String id;
-    private String pic;
-    private String name;
-    private String[] users;
-//    private Message lastMessage;
-    private String lastMessage;
+    private String dialogPhoto;
+    private String dialogName;
+    private ArrayList<User> users;
+    private Message lastMessage;
 
     private int unreadCount;
 
-    public Dialog(String id, String name, String pic,
-                  String[] users, String lastMessage, int unreadCount) {
+    public Dialog(String id, String name, String photo,
+                  ArrayList<User> users, Message lastMessage, int unreadCount) {
+
         this.id = id;
-        this.name = name;
-        this.pic = pic;
+        this.dialogName = name;
+        this.dialogPhoto = photo;
         this.users = users;
         this.lastMessage = lastMessage;
         this.unreadCount = unreadCount;
     }
 
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public String getDialogPhoto() {
-        return pic;
+        return dialogPhoto;
     }
 
+    @Override
     public String getDialogName() {
-        return name;
+        return dialogName;
     }
 
     @Override
-    public List<? extends IUser> getUsers() {
-        return null;
+    public ArrayList<User> getUsers() {
+        return users;
     }
 
     @Override
-    public IMessage getLastMessage() {
-        return null;
+    public Message getLastMessage() {
+        return lastMessage;
     }
-
-    public String[] getUsersId() { return users;}
-//    public String getLastMessage() {
-//        return lastMessage;
-//    }
 
     @Override
-    public void setLastMessage(IMessage message) {
-
-    }
-
-    public void setLastMessage(String lastMessage) {
+    public void setLastMessage(Message lastMessage) {
         this.lastMessage = lastMessage;
     }
 
+    @Override
     public int getUnreadCount() {
         return unreadCount;
     }

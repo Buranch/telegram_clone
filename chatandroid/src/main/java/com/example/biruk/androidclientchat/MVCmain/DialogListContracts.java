@@ -9,25 +9,14 @@ import java.util.List;
  * Created by Biruk on 3/27/2018.
  */
 
-public interface SampleInterfaces {
+public interface DialogListContracts {
 
     interface View {
-        void showText(String a);
-        void showNoText();
-        void showUserList(List<User> userList);
-
         void renderDialogList(List<Dialog> dialogs);
     }
 
     interface Presenter {
-
         void getDialogs();
-        void loadUserName();
-
     }
 
-    interface Data {
-
-        String getStringText();
-    }
 }

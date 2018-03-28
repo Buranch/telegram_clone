@@ -20,6 +20,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -103,8 +104,8 @@ public class DialogsListAdapter<DIALOG extends IDialog>
         holder.setOnDialogViewClickListener(onDialogViewClickListener);
         holder.setOnLongItemClickListener(onLongItemClickListener);
         holder.setOnDialogViewLongClickListener(onDialogViewLongClickListener);
-        holder.setDatesFormatter(datesFormatter);
-        holder.onBind(items.get(position));
+//        holder.setDatesFormatter(datesFormatter);
+//        holder.onBind(items.get(position));
     }
 
     @Override
@@ -573,6 +574,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
 
         @Override
         public void onBind(final DIALOG dialog) {
+            Log.d("onBind", dialog.getDialogName());
             if (dialog.getUnreadCount() > 0) {
                 applyUnreadStyle();
             } else {

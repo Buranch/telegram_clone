@@ -17,7 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".DialogsListActivity" />
         <activity android:name=".MessagesActivity" />
         <activity
             android:name=".LoginActivity"
@@ -33,7 +32,12 @@
             android:name=".HomeActivity"
             android:label="Home" />
 
-        <activity android:name=".MVCmain.Main2Activity"
+        <activity android:name=".DialogsListActivity"
+            android:label="List">
+
+
+        </activity>
+        <activity android:name=".MVCmain.DialogListActivity"
             android:label="MVC"
             >
             <intent-filter>
