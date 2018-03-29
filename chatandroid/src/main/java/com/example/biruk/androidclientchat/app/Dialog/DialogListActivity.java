@@ -1,10 +1,8 @@
-package com.example.biruk.androidclientchat.MVCmain;
+package com.example.biruk.androidclientchat.app.app.Dialog;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.biruk.androidclientchat.ProviderData.RemoteSource.Injection;
 import com.example.biruk.androidclientchat.ProviderData.model.Dialog;

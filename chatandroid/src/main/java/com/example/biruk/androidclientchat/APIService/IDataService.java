@@ -14,9 +14,7 @@ import io.reactivex.Observable;
  * Created by Biruk on 3/27/2018.
  */
 
-public interface IDataService extends IDataContract {
+public interface IDataService{
     Observable<List<Dialog>> getDialogList();
-    Observable<List<User>> getUsersList();
-
 
 }

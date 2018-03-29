@@ -1,23 +1,22 @@
 package com.example.biruk.androidclientchat.ProviderData.RemoteSource;
 
-import android.support.annotation.NonNull;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 
-import com.example.biruk.androidclientchat.ProviderData.fixtures.DialogsFixtures;
+import com.example.biruk.androidclientchat.HomeActivity;
+import com.example.biruk.androidclientchat.ProviderData.RemoteSource.IDataService;
 import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
 import com.example.biruk.androidclientchat.ProviderData.model.Message;
+import com.example.biruk.androidclientchat.ProviderData.model.Token;
 import com.example.biruk.androidclientchat.ProviderData.model.User;
+import com.example.biruk.androidclientchat.ProviderData.model.UserNew;
 
-import java.lang.reflect.Array;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Timer;
-import java.util.concurrent.atomic.AtomicReferenceArray;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -71,11 +70,6 @@ public class DataService implements IDataService {
          );
     }
 
-    @Override
-    public Observable<List<User>> getUsersList() {
-
-        return service.getUsersReactivly();
-    }
 }
 
 //    Observable<Integer> observable = Observable.create(new ObservableOnSubscribe<Integer>() {
@@ -90,3 +84,40 @@ public class DataService implements IDataService {
 //                                                           }
 //                                                       }
 //    );
+
+//
+//    public void loginUser(final UserNew user, final Context context) {
+//
+//        Call<Token> call = service.loginUser(user);
+//        call.enqueue(new Callback<Token>() {
+//            @Override
+//            public void onResponse(Call<Token> call, Response<Token> response) {
+//                try {
+//                    Log.d("RETROFIT", "reponse");
+//                    Log.d("reeponse", ""+response.body().getToken());
+//                    Log.d("mongodID", ""+response.body().getId());
+//                    //save the token in shared preference
+//                    String token = response.body().getToken();
+//                    String userId = response.body().getId();
+//                    SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+//                    SharedPreferences.Editor editor = settings.edit();
+//                    editor.putString(PREFS_TOKEN, token);
+//                    editor.putString(PREFS_USERID, userId);
+//                    // Commit the edits!
+//                    editor.apply();
+//                    Intent i = new Intent(context, HomeActivity.class);
+//                    context.startActivity(i);
+//                } catch (Exception e) {
+//                    Log.d("onResponse", "There is an error");
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Token> call, Throwable t) {
+//                Log.d("onFailure", t.toString());
+//
+//            }
+//
+//        });
+//    }

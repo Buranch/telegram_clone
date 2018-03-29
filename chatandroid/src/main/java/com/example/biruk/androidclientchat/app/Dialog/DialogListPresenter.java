@@ -1,4 +1,4 @@
-package com.example.biruk.androidclientchat.MVCmain;
+package com.example.biruk.androidclientchat.app.app.Dialog;
 
 import android.support.annotation.NonNull;
 
