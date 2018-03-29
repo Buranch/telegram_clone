@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.biruk.androidclientchat.Chat.ChatSocket;
 import com.example.biruk.androidclientchat.Chat.SocketSingleton;
 import com.example.biruk.androidclientchat.ProviderData.fixtures.MessagesFixtures;
-import com.example.biruk.androidclientchat.ProviderData.model.Message;
-import com.example.biruk.androidclientchat.ProviderData.model.User;
+import com.example.biruk.androidclientchat.model.Message;
 import com.stfalcon.chatkit.messages.MessageInput;
 import com.stfalcon.chatkit.messages.MessagesList;
 import com.stfalcon.chatkit.messages.MessagesListAdapter;

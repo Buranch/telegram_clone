@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.example.biruk.androidclientchat.Chat.SocketSingleton;
 import com.example.biruk.androidclientchat.Retrofit.ApiServices;
-import com.example.biruk.androidclientchat.ProviderData.model.TokenO;
-import com.example.biruk.androidclientchat.ProviderData.model.UserNew;
+import com.example.biruk.androidclientchat.model.TokenO;
+import com.example.biruk.androidclientchat.model.UserNew;
 import com.google.gson.Gson;
 
 
@@ -74,7 +74,7 @@ public class RetrofitActivity extends AppCompatActivity{
             public void onClick(View v) {
                 UserNew user = new UserNew("gark@gmail.com", "pass");
                 ApiServices apiServices = new ApiServices();
-                apiServices.loginUser(user, RetrofitActivity.this);
+//                apiServices.loginUser(user, RetrofitActivity.this);
 //                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 //                SharedPreferences.Editor editor = settings.edit();
 //                editor.putString("token", token);

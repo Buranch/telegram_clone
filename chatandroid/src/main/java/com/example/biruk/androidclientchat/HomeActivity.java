@@ -1,6 +1,5 @@
 package com.example.biruk.androidclientchat;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,24 +7,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.biruk.androidclientchat.Chat.SocketSingleton;
-import com.example.biruk.androidclientchat.ProviderData.fixtures.DialogsFixtures;
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
-import com.example.biruk.androidclientchat.ProviderData.model.TokenO;
-import com.example.biruk.androidclientchat.ProviderData.model.UserData;
-import com.example.biruk.androidclientchat.Retrofit.ApiServices;
-import com.example.biruk.androidclientchat.Retrofit.BookmarkCallback;
+import com.example.biruk.androidclientchat.model.TokenO;
+import com.example.biruk.androidclientchat.model.UserData;
 import com.example.biruk.androidclientchat.Retrofit.IAPIService;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;

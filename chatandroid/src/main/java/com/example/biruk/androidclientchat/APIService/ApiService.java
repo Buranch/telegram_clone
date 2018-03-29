@@ -1,52 +1,50 @@
-package com.example.biruk.androidclientchat.ProviderData.RemoteSource;
+package com.example.biruk.androidclientchat.APIService;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.example.biruk.androidclientchat.HomeActivity;
-import com.example.biruk.androidclientchat.ProviderData.RemoteSource.IDataService;
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
-import com.example.biruk.androidclientchat.ProviderData.model.Message;
-import com.example.biruk.androidclientchat.ProviderData.model.Token;
-import com.example.biruk.androidclientchat.ProviderData.model.User;
-import com.example.biruk.androidclientchat.ProviderData.model.UserNew;
+import com.example.biruk.androidclientchat.model.Dialog;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Biruk on 3/27/2018.
  */
 
-public class DataService implements IDataService {
-    private static DataService INSTANCE;
+public class ApiService implements IDataService {
+
+    private static ApiService INSTANCE;
     private ApiEndPoint service;
 
-    private DataService(ApiEndPoint endPoint) {
+    private ApiService(ApiEndPoint endPoint) {
         this.service = endPoint;
     }
 
-    public static DataService getInstance(ApiEndPoint service) {
+    public static ApiService getInstance(ApiEndPoint service) {
         if (INSTANCE == null) {
-            INSTANCE = new DataService(service);
+            INSTANCE = new ApiService(service);
         }
         return INSTANCE;
     }
 
     @Override
-    public Observable<List<Dialog>> getDialogList() {
-//        return service.getDialogList("5aa4f04bd46b9d1d24a1465f");
+    public Observable<Dialog> getDialogList() {
+        Log.d("onGetDialog", "woww");
+        Observable<List<Dialog>> listObservable = service.getDialogList();
+        return listObservable
+                .flatMap(new Function<List<Dialog>, Observable<Dialog>>() {
+            @Override
+            public Observable<Dialog> apply(List<Dialog> dialogs) throws Exception {
+                Log.d("onItera", ""+dialogs.size());
+                return Observable.fromIterable(dialogs);
+                //      return null;
+            }
+        });
+        /*
          return Observable.create(
                  new ObservableOnSubscribe<List<Dialog>>() {
                      @Override
@@ -59,15 +57,17 @@ public class DataService implements IDataService {
                          ArrayList<User> users =new ArrayList<User>();
                          users.add(new User("sdf", "dsfs", "sdf",false));
                          e.onNext(Arrays.asList(
-                                 new Dialog("goo", "biruk", "pic",  users,  new Message("sf",new User("sdf", "dsfs", "sdf",false),
-                                         "wow", calendar.getTime()), 3),
-                                 new Dialog("goo", "jerry", "pic",  users,  new Message("sf",new User("sdf", "dsfs", "sdf",false),
-                                         "143", calendar.getTime()), 2)
+                                 new Dialog("goo", "biruk", "pic", Arrays.asList("sdlkf", "sdfsdf"),
+                                         new Message("sldf", new User("sdf", "name", "avater", false),
+                                                 "last Msg",calendar.getTime()), 3, StringConstants.PRI_CONVTYPE),
+                                 new Dialog("goo", "jerry", "pic", Arrays.asList("sdlkf", "sdfsdf"),
+                                         new Message("sldf", new User("sdf", "name", "avater", false),
+                                                 "tnx :)",calendar.getTime()), 3, StringConstants.PRI_CONVTYPE)
                                  ));
                          e.onComplete();
                      }
                  }
-         );
+         );*/
     }
 
 }
@@ -85,7 +85,6 @@ public class DataService implements IDataService {
 //                                                       }
 //    );
 
-//
 //    public void loginUser(final UserNew user, final Context context) {
 //
 //        Call<Token> call = service.loginUser(user);

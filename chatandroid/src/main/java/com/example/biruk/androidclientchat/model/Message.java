@@ -1,7 +1,7 @@
-package com.example.biruk.androidclientchat.ProviderData.model;
+package com.example.biruk.androidclientchat.model;
 
-import com.stfalcon.chatkit.commons.models.IMessage;
-import com.stfalcon.chatkit.commons.models.MessageContentType;
+import com.stfalcon.chatkit.commons.modeels.IMessage;
+import com.stfalcon.chatkit.commons.modeels.MessageContentType;
 
 import java.util.Date;
 
@@ -12,9 +12,9 @@ public class Message implements IMessage,
         MessageContentType.Image, /*this is for default image messages implementation*/
         MessageContentType /*and this one is for custom content type (in this case - voice message)*/ {
 
-    private String id;
+    private String _id;
     private String text;
-    private Date createdAt;
+    private Date timeStamp;
     private User user;
     private Image image;
     private Voice voice;
@@ -23,33 +23,29 @@ public class Message implements IMessage,
         this(id, user, text, new Date());
     }
 
-    public Message(String id, User user, String text, Date createdAt) {
-        this.id = id;
+    public Message(String id, User user, String text, Date timeStamp) {
+        this._id = id;
         this.text = text;
         this.user = user;
-        this.createdAt = createdAt;
+        this.timeStamp = timeStamp;
     }
 
     @Override
     public String getId() {
-        return id;
+        return _id;
     }
 
-    @Override
     public String getText() {
         return text;
     }
 
-    @Override
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getTimeStamp() {
+        return timeStamp;
     }
 
-    @Override
     public User getUser() {
         return this.user;
     }
-
     @Override
     public String getImageUrl() {
         return image == null ? null : image.url;
@@ -67,8 +63,8 @@ public class Message implements IMessage,
         this.text = text;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public void setImage(Image image) {

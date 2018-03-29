@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 
 import android.widget.ImageView;
 
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
+import com.example.biruk.androidclientchat.model.Dialog;
 import com.squareup.picasso.Picasso;
 import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.dialogs.DialogsListAdapter;
@@ -41,7 +41,7 @@ public abstract class DemoDialogsActivity extends Activity
     public void onDialogLongClick(Dialog dialog) {
         AppUtils.showToast(
                 this,
-                dialog.getDialogName(),
+                dialog.getName(),
                 false);
     }
 }

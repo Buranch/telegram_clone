@@ -18,8 +18,6 @@
 
         <TextView
             android:id="@id/dialogName"
-            android:text="dialogName"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -44,7 +42,6 @@
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:ellipsize="end"
-            android:text="dialogDate"
             android:maxLines="1"/>
 
         <RelativeLayout

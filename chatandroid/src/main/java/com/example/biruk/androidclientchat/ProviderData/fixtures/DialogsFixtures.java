@@ -1,30 +1,15 @@
 package com.example.biruk.androidclientchat.ProviderData.fixtures;
 
-import android.util.Log;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.StringConstants;
+import com.example.biruk.androidclientchat.model.User;
+import com.example.biruk.androidclientchat.model.Message;
 
-import com.example.biruk.androidclientchat.HomeActivity;
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
-import com.example.biruk.androidclientchat.ProviderData.model.User;
-import com.example.biruk.androidclientchat.ProviderData.model.Message;
-import com.example.biruk.androidclientchat.R;
-import com.example.biruk.androidclientchat.Retrofit.IAPIService;
-import com.google.gson.Gson;
-
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /*
  * Created by Anton Bevza on 07.09.16.
@@ -54,9 +39,9 @@ public final class DialogsFixtures extends FixturesData {
                 getRandomId(),
                 users.size() > 1 ? groupChatTitles.get(users.size() - 2) : users.get(0).getName(),
                 users.size() > 1 ? groupChatImages.get(users.size() - 2) : getRandomAvatar(),
-                users,
+                Arrays.asList("sdf", "sdf"),
                 getMessage(lastMessageCreatedAt),
-                i < 3 ? 3 - i : 0);
+                i < 3 ? 3 - i : 0, StringConstants.GRP_CONVTYPE);
     }
 
     private static ArrayList<User> getUsers() {

@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.example.biruk.androidclientchat.ProviderData.fixtures.MessagesFixtures;
-import com.example.biruk.androidclientchat.ProviderData.model.Message;
+import com.example.biruk.androidclientchat.model.Message;
 import com.squareup.picasso.Picasso;
 import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.messages.MessagesListAdapter;
@@ -108,7 +108,7 @@ public abstract class DemoMessageActivity extends AppCompatActivity
             @Override
             public void run() {
                 ArrayList<Message> messages = MessagesFixtures.getMessages(lastLoadedDate);
-                lastLoadedDate = messages.get(messages.size() - 1).getCreatedAt();
+                lastLoadedDate = messages.get(messages.size() - 1).getTimeStamp();
                 messagesAdapter.addToEnd(messages, false);
             }
         }, 1000);
@@ -119,7 +119,7 @@ public abstract class DemoMessageActivity extends AppCompatActivity
             @Override
             public String format(Message message) {
                 String createdAt = new SimpleDateFormat("MMM d, EEE 'at' h:mm a", Locale.getDefault())
-                        .format(message.getCreatedAt());
+                        .format(message.getTimeStamp());
 
                 String text = message.getText();
                 if (text == null) text = "[attachment]";

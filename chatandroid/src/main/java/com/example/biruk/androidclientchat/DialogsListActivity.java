@@ -5,20 +5,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import com.example.biruk.androidclientchat.Chat.ChatSocket;
+
 import com.example.biruk.androidclientchat.Chat.SocketSingleton;
 import com.example.biruk.androidclientchat.ProviderData.fixtures.DialogsFixtures;
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
-import com.example.biruk.androidclientchat.ProviderData.model.Message;
+import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.Message;
 import com.example.biruk.androidclientchat.Retrofit.ApiServices;
 import com.example.biruk.androidclientchat.Retrofit.BookmarkCallback;
 import com.stfalcon.chatkit.dialogs.DialogsList;
 import com.stfalcon.chatkit.dialogs.DialogsListAdapter;
 
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 
@@ -33,7 +31,6 @@ public class DialogsListActivity extends DemoDialogsActivity {
     public static void open(Context context) {
         context.startActivity(new Intent(context, DialogsListActivity.class));
     }
-
     private DialogsList dialogsList;
     private Socket mSocket;
     @Override

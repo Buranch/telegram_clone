@@ -17,8 +17,8 @@ import android.widget.TextView;
 import com.stfalcon.chatkit.R;
 import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.commons.ViewHolder;
-import com.stfalcon.chatkit.commons.models.IMessage;
-import com.stfalcon.chatkit.commons.models.MessageContentType;
+import com.stfalcon.chatkit.commons.modeels.IMessage;
+import com.stfalcon.chatkit.commons.modeels.MessageContentType;
 import com.stfalcon.chatkit.utils.DateFormatter;
 import com.stfalcon.chatkit.utils.RoundedImageView;
 
@@ -760,7 +760,7 @@ public class MessageHolders {
         @Override
         public void onBind(MESSAGE message) {
             if (time != null) {
-                time.setText(DateFormatter.format(message.getCreatedAt(), DateFormatter.Template.TIME));
+                time.setText(DateFormatter.format(message.getTimeStamp(), DateFormatter.Template.TIME));
             }
 
             if (userAvatar != null) {
@@ -807,7 +807,7 @@ public class MessageHolders {
         @Override
         public void onBind(MESSAGE message) {
             if (time != null) {
-                time.setText(DateFormatter.format(message.getCreatedAt(), DateFormatter.Template.TIME));
+                time.setText(DateFormatter.format(message.getTimeStamp(), DateFormatter.Template.TIME));
             }
         }
 

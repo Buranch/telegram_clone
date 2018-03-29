@@ -1,4 +1,4 @@
-package com.example.biruk.androidclientchat.app.app.Login;
+package com.example.biruk.androidclientchat.app.Login;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -20,7 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.biruk.androidclientchat.DialogsListActivity;
-import com.example.biruk.androidclientchat.ProviderData.model.UserNew;
+import com.example.biruk.androidclientchat.model.UserNew;
 import com.example.biruk.androidclientchat.R;
 import com.example.biruk.androidclientchat.Retrofit.ApiServices;
 
@@ -133,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 //            showProgress(true);
             UserNew user = new UserNew(email, password);
             ApiServices apiServices = new ApiServices();
-            apiServices.loginUser(user, LoginActivity.this);
+//            apiServices.loginUser(user, LoginActivity.this);
         }
     }
 

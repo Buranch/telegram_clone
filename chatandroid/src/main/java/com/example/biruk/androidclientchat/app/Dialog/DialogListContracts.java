@@ -1,6 +1,6 @@
-package com.example.biruk.androidclientchat.app.app.Dialog;
+package com.example.biruk.androidclientchat.app.Dialog;
 
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
+import com.example.biruk.androidclientchat.model.Dialog;
 
 import java.util.List;
 

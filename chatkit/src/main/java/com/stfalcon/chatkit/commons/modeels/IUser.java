@@ -14,7 +14,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-package com.stfalcon.chatkit.commons.models;
+package com.stfalcon.chatkit.commons.modeels;
 
 /**
  * For implementing by real user model

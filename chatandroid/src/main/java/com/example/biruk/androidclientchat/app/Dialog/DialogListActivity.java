@@ -1,22 +1,28 @@
-package com.example.biruk.androidclientchat.app.app.Dialog;
+package com.example.biruk.androidclientchat.app.Dialog;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.example.biruk.androidclientchat.ProviderData.RemoteSource.Injection;
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
+import com.example.biruk.androidclientchat.APIService.Injection;
+import com.example.biruk.androidclientchat.model.Dialog;
 import com.example.biruk.androidclientchat.R;
 import com.squareup.picasso.Picasso;
 import com.stfalcon.chatkit.commons.ImageLoader;
-
 import com.stfalcon.chatkit.dialogs.DialogsList;
 import com.stfalcon.chatkit.dialogs.DialogsListAdapter;
 
+//import com.stfalcon.chatkit.dialogs.DialogsList;
+//import com.stfalcon.chatkit.dialogs.DialogsListAdapter;
+
 import java.util.List;
 
-public class DialogListActivity extends AppCompatActivity implements DialogListContracts.View, DialogsListAdapter.OnDialogClickListener<Dialog>,
-        DialogsListAdapter.OnDialogLongClickListener<Dialog> {
+public class DialogListActivity extends AppCompatActivity implements DialogListContracts.View,
+        DialogsListAdapter.OnDialogLongClickListener<Dialog>,
+        DialogsListAdapter.OnDialogClickListener<Dialog>
+
+        {
     DialogListPresenter dialogListPresenter;
     DialogsList dialogsList;
     DialogsListAdapter<Dialog> dialogsAdapter;
@@ -58,6 +64,8 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
 
     @Override
     public void onDialogClick(Dialog dialog) {
+
+        Toast.makeText(this, dialog.getType(), Toast.LENGTH_SHORT).show();
 
     }
 

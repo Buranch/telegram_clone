@@ -14,7 +14,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-package com.stfalcon.chatkit.commons.models;
+package com.stfalcon.chatkit.commons.modeels;
 
 import java.util.Date;
 
@@ -49,5 +49,5 @@ public interface IMessage {
      *
      * @return the message creation date
      */
-    Date getCreatedAt();
+    Date getTimeStamp();
 }

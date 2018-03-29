@@ -1,6 +1,6 @@
 package com.example.biruk.androidclientchat.Retrofit;
 
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
+import com.example.biruk.androidclientchat.model.Dialog;
 
 import java.util.ArrayList;
 

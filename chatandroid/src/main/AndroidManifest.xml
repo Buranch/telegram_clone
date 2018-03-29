@@ -19,7 +19,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".MessagesActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".app.Login.LoginActivity"
             android:label="@string/title_activity_login">
 
         </activity>
@@ -37,7 +37,7 @@
 
 
         </activity>
-        <activity android:name=".MVCmain.DialogListActivity"
+        <activity android:name=".app.Dialog.DialogListActivity"
             android:label="MVC"
             >
             <intent-filter>

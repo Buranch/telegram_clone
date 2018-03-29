@@ -1,4 +1,4 @@
-package com.example.biruk.androidclientchat.ProviderData.model;
+package com.example.biruk.androidclientchat.model;
 
 /**
  * Created by Biruk on 3/10/2018.

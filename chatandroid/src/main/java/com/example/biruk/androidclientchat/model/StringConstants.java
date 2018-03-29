@@ -5,4 +5,18 @@ package com.example.biruk.androidclientchat.model;
  */
 
 public class StringConstants {
+
+    //conversation item
+    public static String PRI_CONVTYPE = "privateConv";
+    public static String GRP_CONVTYPE = "groupConv";
+    public static String CHL_CONVTYPE = "channelConv";
+    public static String SRC_CONVTYPE = "privateConv";
+
+    //preference vars
+    public static final String PREFS_NAME = "ChatApp";
+    public static final String PREFS_TOKEN = "token";
+    public static final String PREFS_USERID = "userID";
+    public static final String PREFS_USERDATA = "userID";
+
+
 }

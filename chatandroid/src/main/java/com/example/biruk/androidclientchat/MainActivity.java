@@ -2,10 +2,8 @@ package com.example.biruk.androidclientchat;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
+import com.example.biruk.androidclientchat.app.Login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 

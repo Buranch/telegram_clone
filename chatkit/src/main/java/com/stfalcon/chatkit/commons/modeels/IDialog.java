@@ -14,7 +14,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-package com.stfalcon.chatkit.commons.models;
+package com.stfalcon.chatkit.commons.modeels;
 
 import java.util.List;
 
@@ -26,15 +26,15 @@ public interface IDialog<MESSAGE extends IMessage> {
 
     String getId();
 
-    String getDialogPhoto();
+    String getProfPic();
 
-    String getDialogName();
+    String getName();
 
-    List<String> getUsers();
+    List<String> getParticipants();
 
-    MESSAGE getLastMessage();
+    MESSAGE getLastMsg();
 
-    void setLastMessage(MESSAGE message);
+    void setLastMsg(MESSAGE message);
 
     int getUnreadCount();
 }

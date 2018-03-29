@@ -1,6 +1,7 @@
-package com.example.biruk.androidclientchat.ProviderData.model;
+package com.example.biruk.androidclientchat.model;
 
-import com.stfalcon.chatkit.commons.models.IUser;
+
+import com.stfalcon.chatkit.commons.modeels.IUser;
 
 /*
  * Created by troy379 on 04.04.17.

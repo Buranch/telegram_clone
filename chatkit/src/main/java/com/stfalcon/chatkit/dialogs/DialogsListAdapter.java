@@ -31,8 +31,8 @@ import android.widget.TextView;
 import com.stfalcon.chatkit.R;
 import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.commons.ViewHolder;
-import com.stfalcon.chatkit.commons.models.IDialog;
-import com.stfalcon.chatkit.commons.models.IMessage;
+import com.stfalcon.chatkit.commons.modeels.IDialog;
+import com.stfalcon.chatkit.commons.modeels.IMessage;
 import com.stfalcon.chatkit.utils.DateFormatter;
 
 import java.lang.reflect.Constructor;
@@ -104,8 +104,8 @@ public class DialogsListAdapter<DIALOG extends IDialog>
         holder.setOnDialogViewClickListener(onDialogViewClickListener);
         holder.setOnLongItemClickListener(onLongItemClickListener);
         holder.setOnDialogViewLongClickListener(onDialogViewLongClickListener);
-//        holder.setDatesFormatter(datesFormatter);
-//        holder.onBind(items.get(position));
+        holder.setDatesFormatter(datesFormatter);
+        holder.onBind(items.get(position));
     }
 
     @Override
@@ -258,7 +258,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
         boolean dialogExist = false;
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getId().equals(dialogId)) {
-                items.get(i).setLastMessage(message);
+                items.get(i).setLastMsg(message);
                 notifyItemChanged(i);
                 if (i != 0) {
                     Collections.swap(items, i, 0);
@@ -278,9 +278,9 @@ public class DialogsListAdapter<DIALOG extends IDialog>
         Collections.sort(items, new Comparator<DIALOG>() {
             @Override
             public int compare(DIALOG o1, DIALOG o2) {
-                if (o1.getLastMessage().getCreatedAt().after(o2.getLastMessage().getCreatedAt())) {
+                if (o1.getLastMsg().getTimeStamp().after(o2.getLastMsg().getTimeStamp())) {
                     return -1;
-                } else if (o1.getLastMessage().getCreatedAt().before(o2.getLastMessage().getCreatedAt())) {
+                } else if (o1.getLastMsg().getTimeStamp().before(o2.getLastMsg().getTimeStamp())) {
                     return 1;
                 } else return 0;
             }
@@ -574,7 +574,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
 
         @Override
         public void onBind(final DIALOG dialog) {
-            Log.d("onBind", dialog.getDialogName());
+            Log.d("onBind", dialog.getName());
             if (dialog.getUnreadCount() > 0) {
                 applyUnreadStyle();
             } else {
@@ -582,11 +582,11 @@ public class DialogsListAdapter<DIALOG extends IDialog>
             }
 
             //Set Name
-            tvName.setText(dialog.getDialogName());
+            tvName.setText(dialog.getName());
 
             //Set Date
             String formattedDate = null;
-            Date lastMessageDate = dialog.getLastMessage().getCreatedAt();
+            Date lastMessageDate = dialog.getLastMsg().getTimeStamp();
             if (datesFormatter != null) formattedDate = datesFormatter.format(lastMessageDate);
             tvDate.setText(formattedDate == null
                     ? getDateString(lastMessageDate)
@@ -594,18 +594,18 @@ public class DialogsListAdapter<DIALOG extends IDialog>
 
             //Set Dialog avatar
             if (imageLoader != null) {
-                imageLoader.loadImage(ivAvatar, dialog.getDialogPhoto());
+                imageLoader.loadImage(ivAvatar, dialog.getProfPic());
             }
 
             //Set Last message user avatar
             if (imageLoader != null) {
-                imageLoader.loadImage(ivLastMessageUser, dialog.getLastMessage().getUser().getAvatar());
+                imageLoader.loadImage(ivLastMessageUser, dialog.getLastMsg().getUser().getAvatar());
             }
             ivLastMessageUser.setVisibility(dialogStyle.isDialogMessageAvatarEnabled()
-                    && dialog.getUsers().size() > 1 ? VISIBLE : GONE);
+                    && dialog.getParticipants().size() > 1 ? VISIBLE : GONE);
 
             //Set Last message text
-            tvLastMessage.setText(dialog.getLastMessage().getText());
+            tvLastMessage.setText(dialog.getLastMsg().getText());
 
             //Set Unread message count bubble
             tvBubble.setText(String.valueOf(dialog.getUnreadCount()));

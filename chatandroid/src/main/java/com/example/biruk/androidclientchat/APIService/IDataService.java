@@ -1,9 +1,6 @@
-package com.example.biruk.androidclientchat.ProviderData.RemoteSource;
+package com.example.biruk.androidclientchat.APIService;
 
-import android.support.annotation.NonNull;
-
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
-import com.example.biruk.androidclientchat.ProviderData.model.User;
+import com.example.biruk.androidclientchat.model.Dialog;
 
 import java.util.List;
 
@@ -15,6 +12,6 @@ import io.reactivex.Observable;
  */
 
 public interface IDataService{
-    Observable<List<Dialog>> getDialogList();
+    Observable<Dialog> getDialogList();
 
 }

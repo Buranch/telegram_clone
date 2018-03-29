@@ -1,6 +1,6 @@
 package com.example.biruk.androidclientchat.ProviderData.fixtures;
-import com.example.biruk.androidclientchat.ProviderData.model.Message;
-import com.example.biruk.androidclientchat.ProviderData.model.User;
+import com.example.biruk.androidclientchat.model.Message;
+import com.example.biruk.androidclientchat.model.User;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -58,7 +58,7 @@ public final class MessagesFixtures extends FixturesData {
                 if (startDate != null) calendar.setTime(startDate);
                 calendar.add(Calendar.DAY_OF_MONTH, -(i * i + 1));
 
-                message.setCreatedAt(calendar.getTime());
+                message.setTimeStamp(calendar.getTime());
                 messages.add(message);
             }
         }

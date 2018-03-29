@@ -1,64 +1,64 @@
-package com.example.biruk.androidclientchat.ProviderData.model;
+package com.example.biruk.androidclientchat.model;
 
-import com.stfalcon.chatkit.commons.models.IDialog;
-import com.stfalcon.chatkit.commons.models.IMessage;
-import com.stfalcon.chatkit.commons.models.IUser;
 
-import java.util.ArrayList;
+import com.stfalcon.chatkit.commons.modeels.IDialog;
+
 import java.util.List;
+
 
 /*
  * Created by troy379 on 04.04.17.
  */
 public class Dialog implements IDialog<Message> {
 
-    private String id;
-    private String dialogPhoto;
-    private String dialogName;
-    private ArrayList<User> users;
-    private Message lastMessage;
-
+    private String _id;
+    private String profPic;
+    private String name;
+    private List<String> participants;
+    private Message lastMsg;
+    private String type;
     private int unreadCount;
-
     public Dialog(String id, String name, String photo,
-                  ArrayList<User> users, Message lastMessage, int unreadCount) {
-
-        this.id = id;
-        this.dialogName = name;
-        this.dialogPhoto = photo;
-        this.users = users;
-        this.lastMessage = lastMessage;
+                  List<String> participants, Message lastMsg, int unreadCount, String type) {
+        this._id = id;
+        this.name = name;
+        this.profPic = photo;
+        this.participants = participants;
+        this.lastMsg = lastMsg;
         this.unreadCount = unreadCount;
+        this.type = type;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
     @Override
     public String getId() {
-        return id;
+        return _id;
     }
 
-    @Override
-    public String getDialogPhoto() {
-        return dialogPhoto;
+    public String getProfPic() {
+        return profPic;
     }
 
-    @Override
-    public String getDialogName() {
-        return dialogName;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public ArrayList<User> getUsers() {
-        return users;
+    public List<String> getParticipants() {
+        return participants;
     }
 
-    @Override
-    public Message getLastMessage() {
-        return lastMessage;
+    public Message getLastMsg() {
+        return lastMsg;
     }
 
-    @Override
-    public void setLastMessage(Message lastMessage) {
-        this.lastMessage = lastMessage;
+    public void setLastMsg(Message lastMsg) {
+        this.lastMsg = lastMsg;
     }
 
     @Override

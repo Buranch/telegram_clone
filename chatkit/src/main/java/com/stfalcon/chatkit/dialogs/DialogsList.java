@@ -24,7 +24,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
 import android.util.AttributeSet;
 
-import com.stfalcon.chatkit.commons.models.IDialog;
+import com.stfalcon.chatkit.commons.modeels.IDialog;
 
 /**
  * Component for displaying list of dialogs
@@ -74,7 +74,7 @@ public class DialogsList extends RecyclerView {
      * @param <DIALOG> Dialog model class
      */
     public <DIALOG extends IDialog>
-    void seetAdapter(DialogsListAdapter<DIALOG> adapter) {
+    void setAdapter(DialogsListAdapter<DIALOG> adapter) {
         setAdapter(adapter, true);
     }
 

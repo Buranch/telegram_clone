@@ -1,9 +1,9 @@
 package com.example.biruk.androidclientchat.Retrofit;
 
-import com.example.biruk.androidclientchat.ProviderData.model.Token;
-import com.example.biruk.androidclientchat.ProviderData.model.TokenO;
-import com.example.biruk.androidclientchat.ProviderData.model.UserData;
-import com.example.biruk.androidclientchat.ProviderData.model.UserNew;
+import com.example.biruk.androidclientchat.model.Token;
+import com.example.biruk.androidclientchat.model.TokenO;
+import com.example.biruk.androidclientchat.model.UserData;
+import com.example.biruk.androidclientchat.model.UserNew;
 
 import org.json.JSONObject;
 

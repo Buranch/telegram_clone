@@ -33,7 +33,7 @@ import android.widget.TextView;
 import com.stfalcon.chatkit.R;
 import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.commons.ViewHolder;
-import com.stfalcon.chatkit.commons.models.IMessage;
+import com.stfalcon.chatkit.commons.modeels.IMessage;
 import com.stfalcon.chatkit.utils.DateFormatter;
 
 import java.util.ArrayList;
@@ -138,9 +138,9 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
      * @param scroll  {@code true} if need to scroll list to bottom when message added.
      */
     public void addToStart(MESSAGE message, boolean scroll) {
-        boolean isNewMessageToday = !isPreviousSameDate(0, message.getCreatedAt());
+        boolean isNewMessageToday = !isPreviousSameDate(0, message.getTimeStamp());
         if (isNewMessageToday) {
-            items.add(0, new Wrapper<>(message.getCreatedAt()));
+            items.add(0, new Wrapper<>(message.getTimeStamp()));
         }
         Wrapper<MESSAGE> element = new Wrapper<>(message);
         items.add(0, element);
@@ -162,7 +162,7 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
         if (!items.isEmpty()) {
             int lastItemPosition = items.size() - 1;
             Date lastItem = (Date) items.get(lastItemPosition).item;
-            if (DateFormatter.isSameDay(messages.get(0).getCreatedAt(), lastItem)) {
+            if (DateFormatter.isSameDay(messages.get(0).getTimeStamp(), lastItem)) {
                 items.remove(lastItemPosition);
                 notifyItemRemoved(lastItemPosition);
             }
@@ -449,11 +449,11 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
             this.items.add(new Wrapper<>(message));
             if (messages.size() > i + 1) {
                 MESSAGE nextMessage = messages.get(i + 1);
-                if (!DateFormatter.isSameDay(message.getCreatedAt(), nextMessage.getCreatedAt())) {
-                    this.items.add(new Wrapper<>(message.getCreatedAt()));
+                if (!DateFormatter.isSameDay(message.getTimeStamp(), nextMessage.getTimeStamp())) {
+                    this.items.add(new Wrapper<>(message.getTimeStamp()));
                 }
             } else {
-                this.items.add(new Wrapper<>(message.getCreatedAt()));
+                this.items.add(new Wrapper<>(message.getTimeStamp()));
             }
         }
     }
@@ -476,7 +476,7 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
     private boolean isPreviousSameDate(int position, Date dateToCompare) {
         if (items.size() <= position) return false;
         if (items.get(position).item instanceof IMessage) {
-            Date previousPositionDate = ((MESSAGE) items.get(position).item).getCreatedAt();
+            Date previousPositionDate = ((MESSAGE) items.get(position).item).getTimeStamp();
             return DateFormatter.isSameDay(dateToCompare, previousPositionDate);
         } else return false;
     }

@@ -1,12 +1,11 @@
-package com.example.biruk.androidclientchat.ProviderData.RemoteSource;
+package com.example.biruk.androidclientchat.APIService;
 
-import com.example.biruk.androidclientchat.ProviderData.model.Dialog;
-import com.example.biruk.androidclientchat.ProviderData.model.User;
+import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.User;
 
 import java.util.List;
 
 import io.reactivex.Observable;
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -16,10 +15,10 @@ import retrofit2.http.Query;
 
 public interface ApiEndPoint {
 
-    @GET("dum")
-//    Call<List<User>> getUsers();
+    @GET("dumd")
+//    Call<List<User>> getParticipants();
     Observable<List<User>> getUsersReactivly();
-    @GET("/api/convlist")
-    Observable<List<Dialog>> getDialogList(@Query("id") String id);
+    @GET("dum")
+    Observable<List<Dialog>> getDialogList();
 
 }
