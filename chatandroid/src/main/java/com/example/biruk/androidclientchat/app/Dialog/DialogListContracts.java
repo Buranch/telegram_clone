@@ -16,6 +16,7 @@ public interface DialogListContracts {
 
     interface Presenter {
         void getDialogs();
+        void getUserInfo();
     }
 
 }

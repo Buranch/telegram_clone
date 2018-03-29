@@ -3,10 +3,12 @@ package com.example.biruk.androidclientchat.APIService;
 import android.util.Log;
 
 import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.User;
 
 import java.util.List;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
@@ -68,6 +70,18 @@ public class ApiService implements IDataService {
                      }
                  }
          );*/
+    }
+
+    @Override
+    public Observable<User> getUserInfo() {
+        return service.getUserInfo()
+                .flatMap(new Function<User, Observable<User>>() {
+                    @Override
+                    public Observable<User> apply(User user) throws Exception {
+                        Log.d("onFlatMap", ""+user.getAvatar());
+                        return Observable.just(user);
+                    }
+                });
     }
 
 }

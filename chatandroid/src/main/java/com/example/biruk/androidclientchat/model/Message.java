@@ -14,16 +14,16 @@ public class Message implements IMessage,
 
     private String _id;
     private String text;
-    private Date timeStamp;
+    private long timeStamp;
     private User user;
     private Image image;
     private Voice voice;
 
     public Message(String id, User user, String text) {
-        this(id, user, text, new Date());
+        this(id, user, text, new Date().getTime());
     }
 
-    public Message(String id, User user, String text, Date timeStamp) {
+    public Message(String id, User user, String text, long timeStamp) {
         this._id = id;
         this.text = text;
         this.user = user;
@@ -40,7 +40,7 @@ public class Message implements IMessage,
     }
 
     public Date getTimeStamp() {
-        return timeStamp;
+        return new Date(timeStamp);
     }
 
     public User getUser() {
@@ -64,7 +64,7 @@ public class Message implements IMessage,
     }
 
     public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
+        this.timeStamp = timeStamp.getTime();
     }
 
     public void setImage(Image image) {

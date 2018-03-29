@@ -60,7 +60,7 @@ public final class DialogsFixtures extends FixturesData {
                 getRandomId(),
                 getRandomName(),
                 getRandomAvatar(),
-                getRandomBoolean());
+                getRandomBoolean(),0);
     }
 
     private static Message getMessage(final Date date) {

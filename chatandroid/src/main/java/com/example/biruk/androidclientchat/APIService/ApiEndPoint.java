@@ -21,4 +21,6 @@ public interface ApiEndPoint {
     @GET("dum")
     Observable<List<Dialog>> getDialogList();
 
+    @GET("user")
+    Observable<User> getUserInfo();
 }

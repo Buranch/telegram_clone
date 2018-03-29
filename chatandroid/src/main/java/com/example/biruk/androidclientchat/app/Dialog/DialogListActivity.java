@@ -34,7 +34,9 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
         dialogsList = (DialogsList) findViewById(R.id.dialogsList);
         initPresenter();
         dialogAdapterInit();
-        dialogListPresenter.getDialogs();
+//        dialogListPresenter.getDialogs();
+
+        dialogListPresenter.getUserInfo();
     }
     public void dialogAdapterInit(){
         ImageLoader imageLoader = new ImageLoader() {
