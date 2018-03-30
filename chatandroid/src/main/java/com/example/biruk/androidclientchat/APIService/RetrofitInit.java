@@ -1,5 +1,7 @@
 package com.example.biruk.androidclientchat.APIService;
 
+import com.example.biruk.androidclientchat.model.StringConstants;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -23,7 +25,7 @@ public class RetrofitInit {
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.22:9666/")
+                    .baseUrl(StringConstants.URL_BASIC)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(client)

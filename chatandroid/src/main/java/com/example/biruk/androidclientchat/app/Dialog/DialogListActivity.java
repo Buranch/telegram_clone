@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.example.biruk.androidclientchat.APIService.Injection;
 import com.example.biruk.androidclientchat.model.Dialog;
 import com.example.biruk.androidclientchat.R;
+import com.example.biruk.androidclientchat.model.StringConstants;
 import com.squareup.picasso.Picasso;
 import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.dialogs.DialogsList;
@@ -44,8 +45,7 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
         ImageLoader imageLoader = new ImageLoader() {
             @Override
             public void loadImage(ImageView imageView, String url) {
-                String ur = "http://10.0.2.22:9666/"+url;
-                Log.d("Loading Image", ""+ur);
+                String ur = StringConstants.URL_BASIC+url;
                 Picasso.with(DialogListActivity.this).load(ur)
 //                        .error(R.drawable.w)
                         .into(imageView);
