@@ -8,10 +8,7 @@ import com.example.biruk.androidclientchat.model.User;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Biruk on 3/27/2018.
@@ -34,18 +31,17 @@ public class ApiService implements IDataService {
     }
 
     @Override
-    public Observable<Dialog> getDialogList() {
+    public Observable<List<Dialog>> getDialogList() {
         Log.d("onGetDialog", "woww");
-        Observable<List<Dialog>> listObservable = service.getDialogList();
+        Observable<List<Dialog>> listObservable = service.getDialogList("5abd3f1eb5caea286c5af5dd");
         return listObservable
-                .flatMap(new Function<List<Dialog>, Observable<Dialog>>() {
-            @Override
-            public Observable<Dialog> apply(List<Dialog> dialogs) throws Exception {
-                Log.d("onItera", ""+dialogs.size());
-                return Observable.fromIterable(dialogs);
-                //      return null;
-            }
-        });
+               .flatMap(new Function<List<Dialog>, Observable<List<Dialog>>>() {
+                   @Override
+                   public Observable<List<Dialog>> apply(List<Dialog> dialogs) throws Exception {
+                       return Observable.just(dialogs);
+                   }
+               });
+
         /*
          return Observable.create(
                  new ObservableOnSubscribe<List<Dialog>>() {

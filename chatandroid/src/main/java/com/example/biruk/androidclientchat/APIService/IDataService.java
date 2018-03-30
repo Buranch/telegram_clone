@@ -13,7 +13,7 @@ import io.reactivex.Observable;
  */
 
 public interface IDataService{
-    Observable<Dialog> getDialogList();
+    Observable<List<Dialog>> getDialogList();
 
     Observable<User> getUserInfo();
 }

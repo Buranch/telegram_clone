@@ -12,11 +12,13 @@
         <com.stfalcon.chatkit.utils.ShapeImageView
             android:id="@id/dialogAvatar"
 
+
             android:layout_width="@dimen/dialog_avatar_width"
             android:layout_height="@dimen/dialog_avatar_height"
             android:layout_margin="16dp"/>
 
         <TextView
+            android:text="Dont Lok"
             android:id="@id/dialogName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,6 +44,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:ellipsize="end"
+            android:text="7:00PM"
             android:maxLines="1"/>
 
         <RelativeLayout
@@ -71,6 +74,7 @@
                 android:layout_toRightOf="@id/dialogLastMessageUserAvatar"
                 android:ellipsize="end"
                 android:gravity="top"
+                android:text="last message"
                 android:maxLines="1"/>
 
         </RelativeLayout>

@@ -2,6 +2,7 @@ package com.example.biruk.androidclientchat.app.Dialog;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -34,17 +35,19 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
         dialogsList = (DialogsList) findViewById(R.id.dialogsList);
         initPresenter();
         dialogAdapterInit();
-//        dialogListPresenter.getDialogs();
+        dialogListPresenter.getDialogs();
 
-        dialogListPresenter.getUserInfo();
+//        dialogListPresenter.getUserInfo();
+
     }
     public void dialogAdapterInit(){
         ImageLoader imageLoader = new ImageLoader() {
             @Override
             public void loadImage(ImageView imageView, String url) {
-                String imageUri = "http://10.0.2.22:9666/images/red.jpg";
-                Picasso.with(DialogListActivity.this).load(imageUri)
-                        .error(R.drawable.w)
+                String ur = "http://10.0.2.22:9666/"+url;
+                Log.d("Loading Image", ""+ur);
+                Picasso.with(DialogListActivity.this).load(ur)
+//                        .error(R.drawable.w)
                         .into(imageView);
             }
         };

@@ -1,6 +1,7 @@
 package com.example.biruk.androidclientchat.APIService;
 
 import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.StringConstants;
 import com.example.biruk.androidclientchat.model.User;
 
 import java.util.List;
@@ -18,9 +19,12 @@ public interface ApiEndPoint {
     @GET("dumd")
 //    Call<List<User>> getParticipants();
     Observable<List<User>> getUsersReactivly();
-    @GET("dum")
-    Observable<List<Dialog>> getDialogList();
+    @GET("api/convList")
+    Observable<List<Dialog>> getDialogList(
+            @Query("id") String id
+    );
 
     @GET("user")
-    Observable<User> getUserInfo();
+    Observable<User> getUserInfo(
+            );
 }

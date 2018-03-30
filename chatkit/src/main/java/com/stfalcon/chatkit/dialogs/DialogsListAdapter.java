@@ -601,8 +601,9 @@ public class DialogsListAdapter<DIALOG extends IDialog>
             if (imageLoader != null) {
                 imageLoader.loadImage(ivLastMessageUser, dialog.getLastMsg().getUser().getAvatar());
             }
+            //display only when it's group
             ivLastMessageUser.setVisibility(dialogStyle.isDialogMessageAvatarEnabled()
-                    && dialog.getParticipants().size() > 1 ? VISIBLE : GONE);
+                    && dialog.getType().equals("groupConv") && dialog.getParticipants().size() > 2 ? VISIBLE : GONE);
 
             //Set Last message text
             tvLastMessage.setText(dialog.getLastMsg().getText());

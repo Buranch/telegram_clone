@@ -36,33 +36,33 @@ public class DialogListPresenter implements DialogListContracts.Presenter{
     @Override
     public void getDialogs() {
 //        Observable<List<Dialog>> observable = dataService.getDialogList();
-        Observable<Dialog> observable = dataService.getDialogList();
+        Observable<List<Dialog>> observable = dataService.getDialogList();
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Dialog>() {
+                .subscribe(
+                        new Observer<List<Dialog>>() {
+                            @Override
+                            public void onSubscribe(Disposable d) {
 
+                            }
 
-            @Override
-            public void onSubscribe(Disposable d) {
-                Log.d("subscired", "sub");
-            }
+                            @Override
+                            public void onNext(List<Dialog> dialogs) {
+                                Log.d("onNext", ""+dialogs.size());
+                                view.renderDialogList(dialogs);
+                            }
 
-            @Override
-            public void onNext(Dialog dialog) {
-                Log.d("subscired", "" + dialog.getName());
+                            @Override
+                            public void onError(Throwable e) {
 
-            }
+                            }
 
-            @Override
-            public void onError(Throwable e) {
+                            @Override
+                            public void onComplete() {
 
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
+                            }
+                        }
+                );
     }
 
     @Override

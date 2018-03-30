@@ -38,7 +38,7 @@
 
         </activity>
         <activity android:name=".app.Dialog.DialogListActivity"
-            android:label="MVC"
+            android:label="AddisGram"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

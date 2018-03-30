@@ -37,4 +37,6 @@ public interface IDialog<MESSAGE extends IMessage> {
     void setLastMsg(MESSAGE message);
 
     int getUnreadCount();
+
+    String getType();
 }
