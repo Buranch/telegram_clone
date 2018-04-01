@@ -30,9 +30,6 @@ public class DialogListPresenter implements DialogListContracts.Presenter{
     }
 
 
-
-
-
     @Override
     public void getDialogs() {
 //        Observable<List<Dialog>> observable = dataService.getDialogList();

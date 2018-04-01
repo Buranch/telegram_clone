@@ -8,7 +8,7 @@ package com.example.biruk.androidclientchat.APIService;
 public class Injection {
 
     public static ApiService provideDataService() {
-        ApiEndPoint apiService = RetrofitInit.getClient().create(ApiEndPoint.class);
-        return ApiService.getInstance(apiService);
+        ApiEndPoint apiEndPoint = RetrofitInit.getClient().create(ApiEndPoint.class);
+        return ApiService.getInstance(apiEndPoint);
     }
 }

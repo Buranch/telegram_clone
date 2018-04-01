@@ -33,7 +33,7 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_default_dialogs);
-        dialogsList = (DialogsList) findViewById(R.id.dialogsList);
+        dialogsList = findViewById(R.id.dialogsList);
         initPresenter();
         dialogAdapterInit();
         dialogListPresenter.getDialogs();
