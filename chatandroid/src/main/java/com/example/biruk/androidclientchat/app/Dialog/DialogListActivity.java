@@ -2,10 +2,9 @@ package com.example.biruk.androidclientchat.app.Dialog;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.example.biruk.androidclientchat.APIService.Injection;
 import com.example.biruk.androidclientchat.model.Dialog;
 import com.example.biruk.androidclientchat.R;
@@ -33,7 +32,7 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_default_dialogs);
-        dialogsList = findViewById(R.id.dialogsList);
+        dialogsList = (DialogsList) findViewById(R.id.dialogsList);
         initPresenter();
         dialogAdapterInit();
         dialogListPresenter.getDialogs();
