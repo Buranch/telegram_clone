@@ -119,7 +119,7 @@ class DialogListStyle extends Style {
         //Unread bubble
         style.dialogUnreadBubbleEnabled = typedArray.getBoolean(R.styleable.DialogsList_dialogUnreadBubbleEnabled, true);
         style.dialogUnreadBubbleBackgroundColor = typedArray.getColor(R.styleable.DialogsList_dialogUnreadBubbleBackgroundColor,
-                style.getColor(R.color.dialog_unread_bubble));
+                style.getColor(R.color.me));
 
         //Unread bubble text
         style.dialogUnreadBubbleTextColor = typedArray.getColor(R.styleable.DialogsList_dialogUnreadBubbleTextColor,

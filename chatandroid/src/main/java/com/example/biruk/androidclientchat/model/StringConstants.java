@@ -19,7 +19,7 @@ public class StringConstants {
     public static final String PREFS_USERDATA = "userID";
 
     //address
-    public static final String URL_BASIC = "http://10.0.2.22:9666/";
+    public static final String URL_BASIC = "http://10.0.3.2:9666/";
 
 
 }
