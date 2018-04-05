@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidClientChat.iml" filepath="$PROJECT_DIR$/AndroidClientChat.iml" />
+      <module fileurl="file://C:\Users\User\Desktop\addisGram\addisGram\telegram_clone\AndroidClientChat.iml" filepath="C:\Users\User\Desktop\addisGram\addisGram\telegram_clone\AndroidClientChat.iml" />
       <module fileurl="file://$PROJECT_DIR$/chatandroid/chatandroid.iml" filepath="$PROJECT_DIR$/chatandroid/chatandroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/chatkit/chatkit.iml" filepath="$PROJECT_DIR$/chatkit/chatkit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/telegram_clone.iml" filepath="$PROJECT_DIR$/telegram_clone.iml" />
     </modules>
   </component>
 </project>
