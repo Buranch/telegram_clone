@@ -51,7 +51,7 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
         fb1.setOnClickListener(floatClikListener);
         fb2.setOnClickListener(floatClikListener);
 
-                dialogListPresenter.getDialogs();
+        dialogListPresenter.getDialogs();
 
 //        dialogListPresenter.getUserInfo();
 
@@ -79,6 +79,7 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
 
     @Override
     public void renderDialogList(List<Dialog> dialogs) {
+        Log.v("dialogs",dialogs.get(0).getName().toString());
         dialogsAdapter.setItems(dialogs);
     }
 

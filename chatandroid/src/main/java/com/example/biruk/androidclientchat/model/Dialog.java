@@ -18,6 +18,7 @@ public class Dialog implements IDialog<Message> {
     private Message lastMsg;
     private String type;
     private int unreadCount;
+
     public Dialog(String id, String name, String photo,
                   List<String> participants, Message lastMsg, int unreadCount, String type) {
         this._id = id;

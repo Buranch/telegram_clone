@@ -1,5 +1,7 @@
 package com.example.biruk.androidclientchat.ProviderData.fixtures;
 
+import com.example.biruk.androidclientchat.model.StringConstants;
+
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -11,9 +13,9 @@ abstract class FixturesData {
 
     static SecureRandom rnd = new SecureRandom();
 
-    static String urlPhone = "http://192.168.137.1:9666";
-    static String urlEmulator = "http://10.0.2.22:9666";
-    static String selected = urlPhone;
+    static String urlPhone = "http://10.0.3.2:9666";
+    static String urlEmulator = StringConstants.URL_BASIC;
+    static String selected = urlEmulator;
 //    static String selected = urlEmulator;
 
     static ArrayList<String> avatars = new ArrayList<String>() {

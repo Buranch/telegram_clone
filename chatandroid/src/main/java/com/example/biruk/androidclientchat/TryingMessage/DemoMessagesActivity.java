@@ -49,12 +49,16 @@ public abstract class DemoMessagesActivity extends AppCompatActivity
                 Picasso.with(DemoMessagesActivity.this).load(url).into(imageView);
             }
         };
+
+
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        messagesAdapter.addToStart(MessagesFixtures.getTextMessage(), true);
+//        messagesAdapter.addToStart(MessagesFixtures.getTextMessage(), true);
+       // messagesAdapter.addToStart();
     }
 
     @Override

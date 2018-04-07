@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.biruk.androidclientchat.Chat.SocketSingleton;
+//import com.example.biruk.androidclientchat.ProviderData.fixtures.DialogsFixtures;
 import com.example.biruk.androidclientchat.ProviderData.fixtures.DialogsFixtures;
 import com.example.biruk.androidclientchat.model.Dialog;
 import com.example.biruk.androidclientchat.model.Message;

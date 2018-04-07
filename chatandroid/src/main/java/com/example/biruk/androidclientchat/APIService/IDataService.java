@@ -1,6 +1,7 @@
 package com.example.biruk.androidclientchat.APIService;
 
 import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.Message;
 import com.example.biruk.androidclientchat.model.User;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface IDataService{
     Observable<List<Dialog>> getDialogList();
 
     Observable<User> getUserInfo();
+
+    Observable<List<Message>> getPrivateMessageList();
 }

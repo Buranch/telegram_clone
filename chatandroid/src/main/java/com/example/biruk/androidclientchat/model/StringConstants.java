@@ -22,4 +22,5 @@ public class StringConstants {
     public static final String URL_BASIC = "http://10.0.3.2:9666/";
 
 
+
 }

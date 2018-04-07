@@ -3,6 +3,7 @@ package com.example.biruk.androidclientchat.APIService;
 import android.util.Log;
 
 import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.Message;
 import com.example.biruk.androidclientchat.model.User;
 
 import java.util.ArrayList;
@@ -42,6 +43,19 @@ public class ApiService implements IDataService {
                        return Observable.just(dialogs);
                    }
                });
+    }
+
+    @Override
+    public Observable<List<Message>> getPrivateMessageList() {
+        Log.d("onGetDialog", "woww");
+        Observable<List<Message>> listObservable = service.getPrivateMessageList("5abd3c40cc5292f4d9d9fab1");
+        return listObservable
+                .flatMap(new Function<List<Message>, Observable<List<Message>>>() {
+                    @Override
+                    public Observable<List<Message>> apply(List<Message> messages) throws Exception {
+                        return Observable.just(messages);
+                    }
+                });
     }
 
     @Override

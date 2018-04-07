@@ -1,6 +1,7 @@
 package com.example.biruk.androidclientchat.APIService;
 
 import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.Message;
 import com.example.biruk.androidclientchat.model.StringConstants;
 import com.example.biruk.androidclientchat.model.User;
 
@@ -24,7 +25,21 @@ public interface ApiEndPoint {
             @Query("id") String id
     );
 
+    @GET("api/privatemsglist")
+    Observable<List<Message>> getPrivateMessageList(
+            @Query("id") String id
+    );
+
+    @GET("api/groupmsglist")
+    Observable<List<Message>> getGroupMessageList(
+            @Query("id") String id
+    );
+
+    @GET("api/channelmsglist")
+    Observable<List<Message>> getChannelMessageList(
+            @Query("id") String id
+    );
+
     @GET("user")
-    Observable<User> getUserInfo(
-            );
+    Observable<User> getUserInfo();
 }

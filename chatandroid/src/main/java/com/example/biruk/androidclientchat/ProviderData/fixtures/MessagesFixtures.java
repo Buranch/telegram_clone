@@ -1,4 +1,6 @@
 package com.example.biruk.androidclientchat.ProviderData.fixtures;
+import android.util.Log;
+
 import com.example.biruk.androidclientchat.model.Message;
 import com.example.biruk.androidclientchat.model.User;
 
@@ -23,7 +25,7 @@ public final class MessagesFixtures extends FixturesData {
     public static Message getUploadedImageResource(String name) {
 
         Message message = new Message(getRandomId(), getUser(), null);
-        message.setImage(new Message.Image("http://10.0.2.22:9666/images/"+name+".jpg"));
+        message.setImage(new Message.Image("http://10.0.3.2:9666/images/"+name+".jpg"));
         return message;
 
     }
@@ -38,6 +40,8 @@ public final class MessagesFixtures extends FixturesData {
     }
 
     public static Message getTextMessage(String text) {
+        User user = getUser();
+        Log.v("User",user.getName());
         return new Message(getRandomId(), getUser(), text);
     }
 

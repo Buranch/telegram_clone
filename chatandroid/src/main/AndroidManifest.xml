@@ -40,13 +40,15 @@
         <activity android:name=".app.Dialog.DialogListActivity"
             android:label="AddisGram"
             >
+
+
+        </activity>
+        <activity android:name=".TryingMessage.DefaultMessagesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-    </application>
+        </activity></application>
 
 </manifest>
