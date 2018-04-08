@@ -115,6 +115,10 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
                 menuInflater.inflate(R.menu.menu_search, menu);
                 MenuItem menuItem = menu.findItem(R.id.menuSearch);
 
+                //redirect to ListFragment
+
+
+
                 SearchView searchView = (SearchView) menuItem.getActionView();
 
                 searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -127,8 +131,6 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
                     public boolean onQueryTextChange(String s) {
                         Log.d("QUERYSEAC", ""+s);
 //                        dialogsAdapter.clear();
-
-
                         //do your search here, probably prepare two list adapters.
                         //or use fragment I don't know
                         return false;
