@@ -20,33 +20,27 @@
         <activity android:name=".MessagesActivity" />
         <activity
             android:name=".app.Login.LoginActivity"
-            android:label="@string/title_activity_login">
-
-        </activity>
+            android:label="@string/title_activity_login"></activity>
         <activity
             android:name=".RetrofitActivity"
             android:label="Retfofit" />
-
-
         <activity
             android:name=".HomeActivity"
             android:label="Home" />
-
-        <activity android:name=".DialogsListActivity"
-            android:label="List">
-
-
-        </activity>
-        <activity android:name=".app.Dialog.DialogListActivity"
-            android:label="AddisGram"
-            >
+        <activity
+            android:name=".DialogsListActivity"
+            android:label="List"></activity>
+        <activity
+            android:name=".app.Dialog.DialogListActivity"
+            android:label="AddisGram">
+            <!--<meta-data android:name="android.app.default_searchable"-->
+                <!--android:value=".SearchableActivity" />-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
     </application>
 
 </manifest>

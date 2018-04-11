@@ -1,6 +1,7 @@
 package com.example.biruk.androidclientchat.APIService;
 
 import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.SearchItem;
 import com.example.biruk.androidclientchat.model.StringConstants;
 import com.example.biruk.androidclientchat.model.User;
 
@@ -23,8 +24,12 @@ public interface ApiEndPoint {
     Observable<List<Dialog>> getDialogList(
             @Query("id") String id
     );
-
     @GET("user")
     Observable<User> getUserInfo(
             );
+
+    @GET("/api/searchPGC")
+    Observable<List<SearchItem>> searchQuery(
+            @Query("query") String query
+    );
 }

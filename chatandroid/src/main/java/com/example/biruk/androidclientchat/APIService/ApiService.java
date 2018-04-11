@@ -3,12 +3,14 @@ package com.example.biruk.androidclientchat.APIService;
 import android.util.Log;
 
 import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.SearchItem;
 import com.example.biruk.androidclientchat.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
 
 /**
@@ -56,4 +58,14 @@ public class ApiService implements IDataService {
                 });
     }
 
+    @Override
+    public Observable<List<SearchItem>> getSearchQuery(String query) {
+        return service.searchQuery(query)
+                .flatMap(new Function<List<SearchItem>, Observable<List<SearchItem>>>() {
+                    @Override
+                    public Observable<List<SearchItem>> apply(List<SearchItem> searchItems) throws Exception {
+                        return Observable.just(searchItems);
+                    }
+                });
+        }
 }

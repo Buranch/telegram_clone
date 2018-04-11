@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.biruk.androidclientchat.APIService.IDataService;
 import com.example.biruk.androidclientchat.model.Dialog;
+import com.example.biruk.androidclientchat.model.SearchItem;
 import com.example.biruk.androidclientchat.model.User;
 
 import java.util.List;
@@ -91,4 +92,33 @@ public class DialogListPresenter implements DialogListContracts.Presenter{
 
 
                 }
+
+    @Override
+    public void searchQuery(String query) {
+        Observable<List<SearchItem>> observable = dataService.getSearchQuery(query);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<SearchItem>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<SearchItem> searchItems) {
+                        view.renderSearchList(searchItems);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+    }
 }
