@@ -1,11 +1,7 @@
 package com.example.biruk.androidclientchat.app.Dialog;
 
-import android.app.SearchManager;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,16 +10,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.biruk.androidclientchat.APIService.Injection;
-import com.example.biruk.androidclientchat.model.Dialog;
 import com.example.biruk.androidclientchat.R;
+import com.example.biruk.androidclientchat.app.CreateGroup.CreateGroup;
+import com.example.biruk.androidclientchat.model.Dialog;
 import com.example.biruk.androidclientchat.model.SearchItem;
 import com.example.biruk.androidclientchat.model.StringConstants;
 import com.github.clans.fab.FloatingActionButton;
@@ -32,11 +26,11 @@ import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.dialogs.DialogsList;
 import com.stfalcon.chatkit.dialogs.DialogsListAdapter;
 
-//import com.stfalcon.chatkit.dialogs.DialogsList;
-//import com.stfalcon.chatkit.dialogs.DialogsListAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
+
+//import com.stfalcon.chatkit.dialogs.DialogsList;
+//import com.stfalcon.chatkit.dialogs.DialogsListAdapter;
 
 public class DialogListActivity extends AppCompatActivity implements DialogListContracts.View,
         DialogsListAdapter.OnDialogLongClickListener<Dialog>,
@@ -100,7 +94,7 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
     // Create the dialogListPresenter
     private void initPresenter() {
         dialogListPresenter = new DialogListPresenter(
-                Injection.provideDataService(),this);
+                Injection.provideDataService(),this, this);
     }
 
     @Override
@@ -129,12 +123,14 @@ public class DialogListActivity extends AppCompatActivity implements DialogListC
                 public void onClick(View v) {
                     switch (v.getId()) {
                         case R.id.fab1:
-                            Log.d("FloatButton ", "reate group");
+                            Log.d("FloatButton ", "create group");
+
                             break;
                         case R.id.fab2:
-                            Log.d("FloatButton ", "reate annel");
+                            Intent intent = new Intent(getApplicationContext(), CreateGroup.class);
+                            startActivity(intent);
+                            Log.d("FloatButton ", "create channel");
                             break;
-
                     }
                 }
             };

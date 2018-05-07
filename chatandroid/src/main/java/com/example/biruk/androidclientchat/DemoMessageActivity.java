@@ -18,6 +18,7 @@ import com.example.biruk.androidclientchat.model.Message;
 import com.squareup.picasso.Picasso;
 import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.messages.MessagesListAdapter;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,7 +28,6 @@ import java.util.Locale;
 public abstract class DemoMessageActivity extends AppCompatActivity
         implements MessagesListAdapter.SelectionListener,
         MessagesListAdapter.OnLoadMoreListener {
-
     private static final int TOTAL_MESSAGES_COUNT = 100;
 
     protected final String senderId = "0";

@@ -7,12 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.biruk.androidclientchat.R;
 import com.example.biruk.androidclientchat.model.SearchItem;
+import com.example.biruk.androidclientchat.model.StringConstants;
+import com.squareup.picasso.Picasso;
+import com.stfalcon.chatkit.commons.ImageLoader;
 
 import java.util.List;
 
@@ -49,6 +51,20 @@ public class SimpleSearchAdapter extends RecyclerView.Adapter<SimpleSearchAdapte
         SearchItem searchItem = searchItems.get(position);
         holder.text.setText(""+searchItem.getName());
 
+        Log.d("SerachITEM" , ""+searchItem.getName());
+        Log.d("SerachITEM" , ""+searchItem.getAvatar());
+        Log.d("SerachITEM" , ""+searchItem.getConvType());
+
+        //        holder.searchAvatar.;
+        ImageLoader imageLoader = new ImageLoader() {
+            @Override
+            public void loadImage(ImageView imageView, String url) {
+                String ur = StringConstants.URL_BASIC+url;
+                Log.d("URL PIC", ur);
+                Picasso.with(mContext).load(ur).into(imageView);
+            }
+        };
+        imageLoader.loadImage(holder.searchAvatar, searchItem.getAvatar());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -65,20 +81,14 @@ public class SimpleSearchAdapter extends RecyclerView.Adapter<SimpleSearchAdapte
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         TextView text;
         RelativeLayout relativeLayout;
-        ImageView imageView;
+        ImageView searchAvatar;
 
         ViewHolder(View view) {
             super(view);
             this.text = (TextView) view.findViewById(R.id.search_name);
             this.relativeLayout = (RelativeLayout) view.findViewById(R.id.search_item_container);
             view.setOnLongClickListener(this);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
-//            this.imageView = (ImageView) view.findViewById(R.id.search_avatar);
+            this.searchAvatar = (ImageView) view.findViewById(R.id.search_avatar);
         }
 
         @Override

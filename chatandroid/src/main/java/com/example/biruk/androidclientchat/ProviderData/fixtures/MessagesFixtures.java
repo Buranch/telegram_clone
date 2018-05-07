@@ -25,7 +25,6 @@ public final class MessagesFixtures extends FixturesData {
         Message message = new Message(getRandomId(), getUser(), null);
         message.setImage(new Message.Image("http://10.0.2.22:9666/images/"+name+".jpg"));
         return message;
-
     }
     public static Message getVoiceMessage() {
         Message message = new Message(getRandomId(), getUser(), null);
@@ -68,7 +67,8 @@ public final class MessagesFixtures extends FixturesData {
     private static User getUser() {
         boolean even = rnd.nextBoolean();
         return new User(
-                even ? "0" : "1",
+                "0",
+//                even ? "0" : "1",
                 even ? names.get(0) : names.get(1),
                 even ? avatars.get(0) : avatars.get(1),
                 true,0);

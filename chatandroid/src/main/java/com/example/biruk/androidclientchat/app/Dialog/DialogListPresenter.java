@@ -1,9 +1,11 @@
 package com.example.biruk.androidclientchat.app.Dialog;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.example.biruk.androidclientchat.APIService.IDataService;
+import com.example.biruk.androidclientchat.Notification.NotificationHandler;
 import com.example.biruk.androidclientchat.model.Dialog;
 import com.example.biruk.androidclientchat.model.SearchItem;
 import com.example.biruk.androidclientchat.model.User;
@@ -23,11 +25,15 @@ import io.reactivex.schedulers.Schedulers;
 public class DialogListPresenter implements DialogListContracts.Presenter{
     DialogListContracts.View view;
     IDataService dataService;
+    Context mContext;
 
+    private Boolean firstTime = true;
 
-    DialogListPresenter(@NonNull IDataService dataService, DialogListContracts.View view) {
+    DialogListPresenter(@NonNull IDataService dataService, DialogListContracts.View view, Context context) {
         this.dataService = dataService;
         this.view = view;
+        this.mContext = context;
+
     }
 
 
@@ -46,8 +52,27 @@ public class DialogListPresenter implements DialogListContracts.Presenter{
 
                             @Override
                             public void onNext(List<Dialog> dialogs) {
+
                                 Log.d("onNext", ""+dialogs.size());
+                                //Iterate through each dialog and send notification
+                                //with the last msg
+
+
                                 view.renderDialogList(dialogs);
+                                if(firstTime){
+                                    int count = 0;
+                                    for(Dialog d: dialogs) {
+                                        count+=d.getUnreadCount();
+                                        Log.d("Dialog ", ""+d.getUnreadCount());
+                                    }
+                                    NotificationHandler notificationHandler = NotificationHandler.getInstance(mContext);
+                                    notificationHandler.createSimpleNotification(mContext,
+                                            "You have new messages",
+                                            "There are "+count+" messages from "+dialogs.size()+ " chats");
+                                    firstTime = false;
+                                }
+
+
                             }
 
                             @Override

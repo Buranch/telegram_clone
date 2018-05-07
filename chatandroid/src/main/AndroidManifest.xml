@@ -17,10 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".MessagesActivity" />
+        <activity android:name=".MessagesActivity"></activity>
         <activity
             android:name=".app.Login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
         <activity
             android:name=".RetrofitActivity"
             android:label="Retfofit" />
@@ -29,18 +29,33 @@
             android:label="Home" />
         <activity
             android:name=".DialogsListActivity"
-            android:label="List"></activity>
+            android:label="List" />
         <activity
             android:name=".app.Dialog.DialogListActivity"
             android:label="AddisGram">
-            <!--<meta-data android:name="android.app.default_searchable"-->
-                <!--android:value=".SearchableActivity" />-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+            <!-- <meta-data android:name="android.app.default_searchable" -->
+            <!-- android:value=".SearchableActivity" /> -->
+
+        </activity>
+        <activity android:name=".Notification.TestActivity" />
+        <activity
+            android:name=".app.CreateGroup.CreateGroup"
+            android:label="Create Group"
+            android:parentActivityName=".app.Dialog.DialogListActivity"></activity>
+        <activity android:name=".chips.AddMemberGroupActivity"
+            android:label="Add Group Members"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

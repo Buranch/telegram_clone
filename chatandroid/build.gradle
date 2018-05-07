@@ -37,8 +37,8 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
     implementation 'com.android.support:recyclerview-v7:25.4.0'
-
     implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation 'com.beloo.widget:ChipsLayoutManager:0.3.7@aar'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 //    implementation 'com.github.stfalcon:chatkit:0.2.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
@@ -51,6 +51,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
     implementation 'com.github.clans:fab:1.6.4'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 //    implementation 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     testImplementation 'junit:junit:4.12'

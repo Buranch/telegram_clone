@@ -6,15 +6,15 @@ public class SearchItem implements ISearchItem{
 
     String name;
 
-    String profPic;
+    String avatar;
 
     String type;
 
 
-    public SearchItem(String id, String name, String profPic, String type) {
+    public SearchItem(String id, String name, String avatar, String type) {
         this._id = id;
         this.name = name;
-        this.profPic = profPic;
+        this.avatar = avatar;
         this.type = type;
     }
 
@@ -30,7 +30,7 @@ public class SearchItem implements ISearchItem{
 
     @Override
     public String getAvatar() {
-        return this.profPic;
+        return this.avatar;
     }
 
     @Override

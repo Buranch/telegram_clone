@@ -530,7 +530,6 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
             onMessageViewLongClickListener.onMessageViewLongClick(view, message);
         }
     }
-
     private View.OnClickListener getMessageClickListener(final Wrapper<MESSAGE> wrapper) {
         return new View.OnClickListener() {
             @Override
@@ -614,7 +613,6 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
     /*
     * LISTENERS
     * */
-
     /**
      * Interface definition for a callback to be invoked when next part of messages need to be loaded.
      */
@@ -865,7 +863,6 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
             super(itemView);
             text = (TextView) itemView.findViewById(R.id.messageText);
         }
-
         @Override
         public void onBind(Date date) {
             if (text != null) {

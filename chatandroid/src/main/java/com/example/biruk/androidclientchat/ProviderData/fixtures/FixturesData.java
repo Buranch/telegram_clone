@@ -78,7 +78,6 @@ abstract class FixturesData {
             add("Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door.");
         }
     };
-
     static final ArrayList<String> images = new ArrayList<String>() {
         {
             add(selected + "/images/black.jpg");
